@@ -1,0 +1,59 @@
+body {
+  background: #323232;
+  color: white;
+}
+
+#game-name {
+  padding: 1rem;
+  background: white;
+  color: #323232;
+}
+
+#life::before {
+  content: "LIFE: ";
+}
+
+#game-name,
+#life,
+#version {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+#board {
+  width: 75vmin;
+  height: 75vmin;
+  max-width: 600px;
+  max-height: 600px;
+  display: grid;
+  margin: auto;
+  background: url('../img/logo.png');
+  background-size: cover;
+}
+
+#board > div {
+  transition: background .25s;
+  animation: block-fade-in .5s;
+}
+
+@keyframes block-fade-in {
+  0% {
+    opacity: 0;
+  }
+}
+
+#board > div.black {
+  background: black;
+}
+
+#board > div.white {
+  background: white;
+}
+
+#game-over {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+  padding: .75rem;
+}
