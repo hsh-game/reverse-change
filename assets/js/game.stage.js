@@ -1,5 +1,9 @@
 game.stage = {};
 
+game.stage.checkClear = function () {
+  return !$('#board > div.black') || !$('#board > div.white');
+}
+
 game.stage.start = function (size, winCallback, loseCallback) {
   let isGameStart = false;
   const board = $('#board'),
@@ -40,11 +44,7 @@ game.stage.start = function (size, winCallback, loseCallback) {
     });
 
     if (isGameStart) {
-      const isWin = !(
-        $$('#board > div.black').length
-        *
-        $$('#board > div.white').length
-      );
+      const isWin = game.stage.checkClear();
       game.lifePoint = Math.floor(Math.max(
         0,
         game.lifePoint
@@ -78,10 +78,12 @@ game.stage.start = function (size, winCallback, loseCallback) {
     div.addEventListener('click', blockClickHandler);
   }
 
-  divs.forEach(div => {
-    if (Math.round(Math.random()))
-      blockClickHandler.call(div);
-  })
+  while (game.stage.checkClear()) {
+    divs.forEach(div => {
+      if (Math.round(Math.random()))
+        blockClickHandler.call(div);
+    });
+  }
 
   isGameStart = true;
 }
