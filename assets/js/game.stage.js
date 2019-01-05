@@ -51,12 +51,10 @@ game.stage.start = function (size, winCallback, loseCallback) {
           - 1 * (1 - isWin)
           + isWin * VOL * 2.5
       ));
-      if (!game.lifePoint) {
-        board.style.display = 'block';
-        board.innerHTML = '<p id="game-over"><br><b>GAME<br>OVER</b></p>';
+      if (!game.lifePoint)
         loseCallback();
-      }
-      if (isWin) winCallback();
+      else if (isWin)
+        winCallback();
     }
 
     $('#life').innerHTML = game.lifePoint;

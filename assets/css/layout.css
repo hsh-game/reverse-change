@@ -13,8 +13,13 @@ body {
   content: "LIFE: ";
 }
 
+#score::before {
+  content: "SCORE: ";
+}
+
 #game-name,
 #life,
+#score,
 #version {
   text-align: center;
   font-weight: 800;
@@ -24,8 +29,8 @@ body {
 #board {
   width: 75vmin;
   height: 75vmin;
-  max-width: 600px;
-  max-height: 600px;
+  max-width: 550px;
+  max-height: 550px;
   display: grid;
   margin: auto;
   background: url('../img/logo.png');
@@ -52,8 +57,10 @@ body {
 }
 
 #game-over {
-  text-align: center;
-  font-size: 2rem;
+  height: 100%;
   margin: 0;
   padding: .75rem;
+  background: rgba(0, 0, 0, 0.9);
+  text-align: center;
+  font-size: 2rem;
 }
