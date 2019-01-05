@@ -58,6 +58,7 @@ game.stage.start = function (size, winCallback, loseCallback) {
     }
 
     $('#life').innerHTML = game.lifePoint;
+    $('#score').innerHTML = game.score;
   }
 
   winCallback = winCallback || function () {};

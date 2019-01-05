@@ -12,6 +12,7 @@ game.start = function () {
 
   function processStage(n) {
     game.stage.start(n, () => {
+      game.score += n * 100;
       setTimeout(() => {
         processStage(n + 1);
       }, 500);
